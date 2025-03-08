@@ -1,0 +1,261 @@
+/* style.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* Updated background to a softer gradient */
+  background: linear-gradient(135deg, #fddb92, #d1fdff);
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: #333; /* Darker text for better readability on light background */
+}
+
+.hearts {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0; /* Ensure hearts are behind the content */
+}
+
+.heart {
+  position: absolute;
+  font-size: 24px; /* Slightly smaller hearts */
+  opacity: 0.7; /* Slightly less opaque */
+  animation: float 7s infinite linear; /* Adjusted animation speed */
+  color: #ff7eb3; /* Heart color to match button accents */
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  /* Updated wrapper background for a softer look */
+  background: rgba(255, 255, 255, 0.85); /* Slightly more transparent */
+  padding: 40px; /* Increased padding for more space */
+  border-radius: 25px; /* More rounded corners */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Softer shadow */
+  backdrop-filter: blur(15px); /* Increased blur for a softer effect */
+  text-align: center; /* Center align text within the wrapper */
+  z-index: 1;
+}
+
+/* Headline Styling */
+.headline {
+  font-size: 40px; /* Larger headline */
+  margin-bottom: 25px;
+  color: #e44d26; /* Headline color - a warm, inviting orange-red */
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.05); /* Softer text shadow */
+  letter-spacing: 1.2px; /* Slight letter spacing for better readability */
+}
+
+.message-container {
+  min-height: 100px;
+  margin-bottom: 25px;
+}
+
+.ps-container {
+  margin-top: 25px;
+  font-size: 16px;
+  color: #777; /* Muted color for P.S. */
+}
+
+.question {
+  font-size: 36px; /* Slightly larger question */
+  color: #e44d26; /* Question color - same as headline for consistency */
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.05); /* Softer text shadow */
+}
+
+.photo {
+  width: 100%;
+  max-height: 350px; /* Increased max height */
+  object-fit: cover;
+  border-radius: 20px; /* More rounded corners for image */
+  margin-bottom: 30px;
+  border: 4px solid #fff; /* Thicker white border */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Softer shadow */
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px; /* Increased gap between buttons */
+  margin-top: 25px;
+}
+
+.btn-group button {
+  padding: 18px 45px; /* Slightly larger buttons */
+  font-size: 22px;
+  border-radius: 35px; /* More rounded buttons */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* General button shadow */
+}
+
+.yes-btn {
+  /* Updated Yes button gradient - warmer tones */
+  background: linear-gradient(45deg, #ff6b6b, #ffa07a);
+  color: white;
+  box-shadow: 0 6px 18px rgba(255, 107, 107, 0.5); /* Stronger shadow for Yes button */
+}
+
+.no-btn {
+  background: linear-gradient(45deg, #ffb6c1, #ff7eb3);
+  color: white;
+  transition: left 0.4s ease-out, top 0.4s ease-out; /* Smooth transition for position changes */
+}
+
+.btn-clicked {
+  animation: buttonClick 0.5s forwards;
+}
+
+@keyframes buttonClick {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+.final-btn-clicked {
+  animation: finalButtonClick 0.5s forwards;
+}
+
+@keyframes finalButtonClick {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+.message {
+  font-size: 26px;
+  color: #e44d26; /* Message color consistent with question and headline */
+  margin: 18px 0;
+  opacity: 0;
+  transform: translateY(15px);
+  animation: messageAppear 0.6s forwards;
+}
+
+@keyframes messageAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.final-message {
+  font-size: 30px;
+  color: #fff; /* White text for final message */
+  text-align: center;
+  padding: 30px 20px; /* Increased padding */
+  /* Darker, more vibrant background for final message */
+  background: linear-gradient(45deg, #ff6b6b, #e44d26);
+  border-radius: 20px;
+  margin-top: 30px;
+  box-shadow: 0 8px 20px rgba(228, 77, 38, 0.6); /* Stronger shadow for final message */
+  animation: pulse 2s infinite, fadeInOut 2s ease-in-out infinite alternate; /* Added fade in/out */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Confetti Styles */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allow clicks to pass through confetti */
+  z-index: 2; /* Confetti on top of everything */
+}
+
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  opacity: 0;
+  background-color: #e44d26; /* Default confetti color, can be varied */
+  animation: confetti-fall 2.5s ease-out forwards,
+    confetti-rotate 2s linear infinite;
+  transform-origin: center center;
+}
+
+.confetti:nth-child(even) {
+  background-color: #ff7eb3; /* Different color for some confetti */
+}
+
+.confetti:nth-child(3n) {
+  background-color: #ffa07a; /* Another color */
+}
+
+@keyframes confetti-fall {
+  0% {
+    top: -10%;
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+    transform: translateX(var(--confetti-drift)) rotate(720deg);
+  }
+}
+
+@keyframes confetti-rotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
